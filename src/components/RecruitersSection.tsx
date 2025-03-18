@@ -157,7 +157,7 @@ export const RecruitersSection = () => {
                       </div>
                       <div className="p-5">
                         <h4 className="font-semibold text-lg text-gray-900 mb-2">{recruiter.name}</h4>
-                        <p className="text-blue-600 font-medium">{recruiter.yearsExperience} Years Experience</p>
+                        <p className="text-gray-600 font-medium">{recruiter.yearsExperience} Years Experience</p>
                       </div>
                     </div>
                   ))}

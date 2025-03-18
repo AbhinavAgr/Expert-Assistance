@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { 
   CheckCircle2, 
-  ArrowRight 
+  ArrowRight,
+  GraduationCap,
+  Users,
+  UserCheck,
+  FileText
 } from 'lucide-react';
 
 export const JobPostingPlansSection = () => {
@@ -9,73 +13,58 @@ export const JobPostingPlansSection = () => {
 
   const tiers = [
     {
-      name: 'Basic',
-      price: '₹29,999',
-      billingFrequency: 'per month',
-      description: 'Perfect for startups and small businesses',
+      name: 'Campaign',
+      description: 'Ideal for bulk hiring needs',
       features: [
-        'Access to basic job portals',
-        'Entry-level hiring support',
-        'Basic screening',
-        'Email support',
-        'Up to 5 job postings',
-        'Candidate database access'
+        'Bulk Hiring',
+        'Footfall of up to 60 relevant candidates for walk-in interviews',
+        'Best for Software Developers, IT Support Specialists',
+        'Front line sales officers, Financial Advisors',
       ],
       color: 'bg-blue-500',
-      recommendedFor: 'Small Teams & Startups'
-    },
-    {
-      name: 'Mid & Junior',
-      price: '₹49,999',
-      billingFrequency: 'per month',
-      description: 'Ideal for growing companies',
-      features: [
-        'Multi-channel job posting',
-        'Dedicated recruitment expert',
-        'Advanced candidate screening',
-        'Priority email & chat support',
-        'Up to 10 job postings',
-        'Detailed candidate reports',
-        'LinkedIn job posting'
-      ],
-      color: 'bg-purple-500',
-      recommendedFor: 'Growing Businesses',
-      isPopular: true
+      icon: GraduationCap,
+      recommendedFor: 'Bulk Hiring Drives'
     },
     {
       name: 'Premium',
-      price: '₹79,999',
-      billingFrequency: 'per month',
-      description: 'For enterprise-level hiring needs',
+      description: 'For senior and high-value positions',
       features: [
-        'All premium job portals',
-        'Senior level hiring',
-        'AI-powered candidate matching',
-        '24/7 dedicated support',
-        'Unlimited job postings',
-        'Comprehensive talent pipeline',
-        'Executive search support',
-        'Branding & employer marketing'
+        'Premium & Senior Mandates (CTC > 15 Lacs)',
+        '5 Interview-ready candidates (post their consent)',
+        'Blockchain Architect, IT Director, VPs',
+        'Sales Head, Operations Director, Finance Head',
       ],
-      color: 'bg-green-500',
-      recommendedFor: 'Enterprise & Scale-ups'
+      color: 'bg-purple-500',
+      icon: Users,
+      recommendedFor: 'Senior Executive Hiring',
+      isPopular: true
     },
     {
-      name: 'Custom',
-      price: 'Custom Pricing',
-      billingFrequency: 'tailored to needs',
-      description: 'Customized solutions for unique hiring requirements',
+      name: 'Mid & Junior',
+      description: 'For mid-level and junior positions',
       features: [
-        'Fully customized sourcing strategy',
-        'Multiple dedicated experts',
-        'Bespoke workflow design',
-        'Comprehensive talent acquisition',
-        'Advanced analytics & reporting',
-        'Industry-specific targeting',
-        'White-glove service'
+        'Mid-level Mandate (CTC 8-15 Lacs)',
+        'Junior Mandate (CTC < 8Lacs)',
+        '5 Interview-ready candidates (post their consent)',
+        'Data Scientists, Product Managers, Marketing Managers, Finance Controllers',
+      ],
+      color: 'bg-green-500',
+      icon: UserCheck,
+      recommendedFor: 'Mid & Junior Level Hiring'
+    },
+    {
+      name: 'Basic',
+      description: 'Personalized service for all roles',
+      features: [
+        'Personalized Service',
+        'Posting jobs, screening and sharing relevant responses',
+        'Works Well for All Roles, including Sales Officers, IT Specialists',
+        'Compliance Officers, Accountants, Relationship Managers',
       ],
       color: 'bg-orange-500',
-      recommendedFor: 'Complex Hiring Needs'
+      icon: FileText,
+      recommendedFor: 'General Hiring Needs',
+      revived: true
     }
   ];
 
@@ -84,10 +73,10 @@ export const JobPostingPlansSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Flexible Hiring Solutions for Every Business
+          Naukri expert assist custom solutions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose a plan that matches your hiring needs and scale effortlessly
+            Choose the right service tier based on your hiring requirements
           </p>
         </div>
 
@@ -115,6 +104,8 @@ export const JobPostingPlansSection = () => {
                   Most Popular
                 </div>
               )}
+              
+              
 
               <div className={`
                 w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300
@@ -124,39 +115,46 @@ export const JobPostingPlansSection = () => {
                   : ''
                 }
               `}>
-                <span className="text-2xl text-white">📊</span>
+                <tier.icon className="text-2xl text-white w-8 h-8" />
               </div>
 
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {tier.name}
               </h3>
 
-              <div className="mb-4">
-                <p className="text-2xl font-bold text-[#265DF5]">{tier.price}</p>
-                <p className="text-sm text-gray-500">{tier.billingFrequency}</p>
-              </div>
-
               <p className="text-gray-600 mb-4 min-h-[50px]">{tier.description}</p>
 
               <div className="mb-6">
                 <h4 className="text-sm font-semibold text-gray-700 mb-3">
-                  Key Features:
+                  How does it help?
                 </h4>
                 <div className="space-y-2">
-                  {tier.features.slice(0, 4).map((feature, featureIndex) => (
+                  {tier.features.slice(0, 2).map((feature, featureIndex) => (
                     <div 
                       key={featureIndex} 
                       className="flex items-center gap-2"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-green-500" />
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                       <span className="text-sm text-gray-600">{feature}</span>
                     </div>
                   ))}
-                  {tier.features.length > 4 && (
-                    <div className="text-sm text-gray-500">
-                      + {tier.features.length - 4} more features
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-700 mb-3">
+                  Roles (Samples)
+                </h4>
+                <div className="space-y-2">
+                  {tier.features.slice(2, 4).map((feature, featureIndex) => (
+                    <div 
+                      key={featureIndex} 
+                      className="flex items-center gap-2"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                      <span className="text-sm text-gray-600">{feature}</span>
                     </div>
-                  )}
+                  ))}
                 </div>
               </div>
 
@@ -175,13 +173,19 @@ export const JobPostingPlansSection = () => {
                   }
                 `}
               >
-                Get Started
+                Request callback
                 {hoveredPlan === index && (
                   <ArrowRight className="w-5 h-5 ml-2" />
                 )}
               </button>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <p className="text-gray-600">
+            Not sure which plan is right for you? <a href="#" className="text-blue-600 font-medium">Contact our team</a> for a customized solution.
+          </p>
         </div>
       </div>
     </div>
